@@ -1,0 +1,234 @@
+*{
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "-apple-system", sans-serif;
+}
+
+.page{
+  position: absolute;
+  left: -100vw;
+  background:white;
+  width: 100vw;
+  min-height: 100vh;
+}
+
+.current-page{
+  left: 0vw;
+}
+
+.page:not(.current-page){
+  background-color:#F8F8F8;
+}
+
+.prompt{
+  position: fixed;
+  z-index:11111;
+  width:100vw;
+  height:100vh;
+  display:flex;
+  flex-direction:column;
+  background: rgb(100, 100, 100, .5);
+  place-content:center;
+  place-items:center;
+}
+
+.prompt input,
+.prompt button,
+.prompt h3{
+  opacity: 1;
+  margin-top:2em;
+  font-size:1.3em;
+}
+
+.hide{
+  display: none;
+}
+
+#toc-nav p,
+.folder-nav-right{ 
+  font-size: 1.2rem;
+  color: orange;
+  text-align:right;
+  padding: .5em 1.5rem .5em .5em;
+  flex-grow: 1;
+}
+
+#toc-content,
+.folder-content{
+    display: grid;
+    grid-row-gap: 1px;  
+    background: lightgray;
+    color: #545050;
+    font-weight: 300;
+    padding-bottom: 1px;
+}
+
+#toc-content div,
+.folder-content div{
+    background: white;
+    line-height: 2.75em;
+    display:  grid;
+    grid-template-columns: 75% 25%;
+}
+
+#toc-footer,
+.folder-footer{
+  position: relative;
+  color: blue;
+  text-decoration: underline;
+  text-align:right;
+  margin: 5em 1.5rem;
+}
+
+.folder-nav,
+.file-nav{
+  display: flex;
+  flex-direction: row;
+}
+
+.folder-nav-left,
+.file-nav-left{
+  font-size: .8rem;
+  color: orange;
+  padding: .5rem 1.5rem .5em 1em;
+}
+
+.file-nav{
+  height:4em;
+}
+
+.folder-title-left,
+.file-title-left{
+  background: white;
+  min-width:10em;
+  position: relative;
+}
+
+.folder-title-right,
+.file-title-right{
+  text-align:right;
+}
+
+.circle-under{
+    position: absolute !important;
+    left: .75rem;
+    top: .9rem;
+    z-index: 888;
+    border: 1px solid;
+    height: 1.1rem;
+    border-radius: 1rem;
+    padding-left: 1rem;
+}
+
+.text-over{
+  position: absolute;
+  z-index: 999;
+  padding-left: 1rem;  
+  min-width:10rem;
+}
+
+textarea{
+  width:calc(100% - 1em); 
+  height: 100vh;
+  outline: none;
+  padding: 0;
+  margin: 0;
+  border: 0px;
+}
+
+.pencil{
+  /*background: no-repeat url("https://sean-mcdonald.com/images/icons8-pencil-50.png"); 
+  background-size: 20px 20px;*/
+  height: 20px;
+  width: 20px;
+}
+
+.pencil::after{
+  content: "\2710"
+}
+
+.circle-under.clicked{
+  background-color: orange !important;
+}
+
+.circle-under:not(.clicked){
+  background-color:white;
+}
+
+.pad-left{
+    padding: .5rem 1.5rem .5rem 1rem;
+}
+
+.slideOutRight{
+  animation: .2s ease-in 0s forwards slideOutRight;
+}
+.slideOutLeft{
+  animation: .2s ease-in 0s forwards slideOutLeft;
+}
+.slideInRight{
+  animation: .2s ease-in 0s forwards slideInRight;
+}
+.slideInLeft{
+  animation: .2s ease-in 0s forwards slideInLeft;
+}
+
+.slideTextRight{
+  animation: .2s ease-in 0s forwards slideTextRight;
+}
+.slideTextLeft{
+  animation: .2s ease-in 0s forwards slideTextLeft;
+}
+
+
+@keyframes slideOutRight{
+  from{
+    left: 0vw;
+  }
+  to{
+    left:100vw;
+  }
+}
+
+@keyframes slideOutLeft{
+  from{
+    left: 0vw;
+  }
+  to{
+    left:-100vw;
+  }
+}
+@keyframes slideInRight{
+  from{
+    left: 100vw;
+  }
+  to{
+    left:0vw;
+  }
+}
+
+@keyframes slideInLeft{
+  from{
+    left: -100vw;
+  }
+  to{
+    left:0vw;
+  }
+}
+
+@keyframes slideTextRight{
+  from{
+    left: 0;
+  }
+  to{
+    left: 2em;
+  }
+}
+
+@keyframes slideTextLeft{
+  from{
+    left: 2em;
+  }
+  to{
+    left: 0;
+  }
+}
